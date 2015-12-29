@@ -11,3 +11,4 @@ dist
 .npm
 /.project
 /bower_components
+.DS_Store
