@@ -1,11 +1,11 @@
 { "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "Vistual containers stack for the flexion-18f prototype",
+  "Description" : "Vistual containers stack for the flexion-epa prototype",
 
   "Parameters" : {
     "CFLookuplambdaBucket": {
       "Description": "ID of the CloudFormation stack lookup lambda.",
       "Type": "String",
-      "Default": "flexion-18f-deployment-assets"
+      "Default": "flexion-epa-deployment-assets"
     },
 
     "CFLookuplambdaKey": {
@@ -20,7 +20,7 @@
       "MinLength" : 1,
       "MaxLength" : 255,
       "AllowedPattern" : "^[a-zA-Z][-a-zA-Z0-9]*$",
-      "Default" : "flexion-18f-network"
+      "Default" : "flexion-epa-network"
     },
 
     "CreateElasticLoadBalancer" : {
@@ -100,7 +100,7 @@
       "Properties" : {
         "ContainerDefinitions" : [
           {
-            "Name": "flexion-18f-application-server",
+            "Name": "flexion-epa-application-server",
             "Environment": [{
               "Name": "PORT",
               "Value": "9000"
@@ -108,7 +108,7 @@
             "Command": ["grunt", "serve:dist"],
             "Cpu": "500",
             "Essential": "true",
-            "Image":"bdruth/flexion-ads-18f-response",
+            "Image":"bdruth/flexion-ads-epa-response",
             "Memory":"1600",
             "PortMappings": [
               { "HostPort": 80, "ContainerPort": 9000 }
@@ -259,7 +259,7 @@
         "DesiredCount": "1",
         "LoadBalancers": [
           {
-            "ContainerName": "flexion-18f-application-server",
+            "ContainerName": "flexion-epa-application-server",
             "ContainerPort": "9000",
             "LoadBalancerName" : { "Ref" : "EcsElasticLoadBalancer" }
           }
