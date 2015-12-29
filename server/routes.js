@@ -9,7 +9,7 @@ var errors = require('./components/errors/index');
 module.exports = function(app) {
 
   // Insert routes below
-//  app.use('/api/food-search', require('./api/food-search/index'));
+	app.use('/api/uv-index', require('./api/uv-index'));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

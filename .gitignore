@@ -9,3 +9,6 @@ dist
 .bash_history
 .config
 .npm
+/.project
+/bower_components
+.DS_Store

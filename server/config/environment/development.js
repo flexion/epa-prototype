@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/picnicApp-dev'
+    uri: 'mongodb://localhost/epaprototype-dev'
   },
 
   seedDB: true
