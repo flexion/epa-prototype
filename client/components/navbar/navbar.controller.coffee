@@ -10,8 +10,8 @@ angular.module 'epaPrototypeApp'
       link: '/about/'
     },
     {
-      title: 'Contact'
-      link: '/contact/'
+      title: 'Link'
+      link: '/link/'
     }
   ]
   $scope.isCollapsed = true
