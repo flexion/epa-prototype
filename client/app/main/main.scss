@@ -8,7 +8,6 @@
 //@import "header.scss";
 //@import "footer.scss";
 
-=======
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
 $primaryColor:          #9851cb;
@@ -251,7 +250,7 @@ a:hover, a:focus {
     font-size: 37px;
     }
   }
- 
+
   .form-control {
     border-bottom-left-radius: 6px !important;
     border-top-left-radius: 6px !important;
@@ -264,7 +263,7 @@ a:hover, a:focus {
   .search__button {
     background: $brand-secondary;
     color: $gray-lightest;
-    border: 0; 
+    border: 0;
   }
   .glyphicon {
     font-size: 1.3em;
@@ -363,27 +362,27 @@ a:hover, a:focus {
 	height: 100px;
 	border: 0;
 	box-shadow: none;
-	
+
 	span {
 		width: 250px;
 		float: left;
 		padding-right: 20px;
 	}
-	
+
 	span.or {
 		width: 50px;
 		text-align: center;
 		font-weight: bold;
 	}
-	
+
 	span.state {
 		width: 100px;
 	}
-	
+
 	span.zipcode {
 		width: 150px;
 	}
-	
+
 	span.input-group-btn.uv {
 		display: block;
 		width: 50px;
