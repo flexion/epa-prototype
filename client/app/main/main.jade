@@ -131,6 +131,7 @@ div.banner
                 img.search-button(src='/../design-files/image-assets/search_icon.png')
 
 
+
         .cal-today
           span.cal-day-name {{calData.today.dayName}}
           div.cal-day {{calData.today.monthName}} {{calData.today.dayNum}}
@@ -139,14 +140,22 @@ div.banner
         div.heading2(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
         div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
 
-div(ng-show='uvData[0].length > 0')
-  p {{uvData}}
-  p {{uvLabels}}
-  p {{uvSeries}}
 
-  canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
+  .row
+    .col-sm-8.col-sm-offset-2
+      div(ng-show='uvData[0].length > 0')
+        p {{uvData}}
+        p {{uvLabels}}
+        p {{uvSeries}}
+  .row
+    .col-sm-8.col-sm-offset-2
 
-  //commenting this out, as we don't have daily data to use a calendar.
-  //div(data-ng-include='"components/calendar/calendar.html"')
+      div.chart-container
+        canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
+  .row
+    .col-sm-8.col-sm-offset-2
+
+      //div(data-ng-include='"components/calendar/calendar.html"')
+
 
 div(ng-include='"components/navbar/navbar.html"')
