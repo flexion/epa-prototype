@@ -22,7 +22,17 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
         )
       )
 
+      EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
+        console.log('response.data', response.data)
+        $scope.dailyUV = response.data[0].UV_INDEX
+        datesData = DatesFactory.getDates(moment())
+        $scope.dayNum = datesData.today.dayNum
+        $scope.dayName = datesData.today.dayName
+        $scope.monthName = datesData.today.monthName
+      )
+
     else if $scope.city and $scope.state
+      debugger
       EpaService.getUvByAddressHourly($scope.city, $scope.state).then( (response)->
 
         $scope.uvData = [[]]
@@ -35,11 +45,3 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
         )
     )
 
-    EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
-      console.log('response.data', response.data)
-      $scope.dailyUV = response.data[0].UV_INDEX
-      datesData = DatesFactory.getDates(moment())
-      $scope.dayNum = datesData.today.dayNum
-      $scope.dayName = datesData.today.dayName
-      $scope.monthName = datesData.today.monthName
-    )
