@@ -34,7 +34,12 @@ exports.getJSON = function(options, onResult)
   req.end();
 };
 
-exports.getPath = function(zipcode)
+exports.getZipcodePath = function(zipcode)
 {
   return '/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/' + zipcode + '/JSON';
+};
+
+exports.getAddressPath = function(city, state)
+{
+  return '/enviro/efservice/getEnvirofactsUVHOURLY/CITY/' + city + '/STATE/' + state + '/JSON';
 };

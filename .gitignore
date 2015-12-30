@@ -12,3 +12,5 @@ dist
 /.project
 /bower_components
 .DS_Store
+npm-debug.log
+client/index.html
