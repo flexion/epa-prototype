@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module 'epaPrototypeApp'
-.factory 'Modal', ($rootScope, $modal) ->
-  
+.factory 'Modal', ['$rootScope','$modal', ($rootScope, $modal) ->
+
   ###
   Opens a modal
   @param  {Object} scope      - an object to be merged with modal's scope
@@ -19,12 +19,12 @@ angular.module 'epaPrototypeApp'
       windowClass: modalClass
       scope: modalScope
 
-  
+
   # Public API here
-  
-  # Confirmation modals 
+
+  # Confirmation modals
   confirm:
-    
+
     ###
     Create a function to open a delete confirmation modal (ex. ng-click='myModalFn(name, arg1, arg2...)')
     @param  {Function} del - callback, ran when delete is confirmed
@@ -32,7 +32,7 @@ angular.module 'epaPrototypeApp'
     ###
     delete: (del) ->
       del = del or angular.noop
-      
+
       ###
       Open a delete confirmation modal
       @param  {String} name   - name or info to show on modal
@@ -69,3 +69,4 @@ angular.module 'epaPrototypeApp'
           return
 
         return
+]

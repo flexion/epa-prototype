@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'epaPrototypeApp'
-.controller 'NavbarCtrl', ($scope, $location) ->
+.controller 'NavbarCtrl', ['$scope', '$location', ($scope, $location) ->
   $scope.menu = [{
     title: 'Home'
     link: '/'},
@@ -18,3 +18,4 @@ angular.module 'epaPrototypeApp'
 
   $scope.isActive = (route) ->
     route is $location.path()
+]

@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'epaPrototypeApp'
-.factory 'DatesFactory', ($rootScope) ->
+.factory 'DatesFactory', ['$rootScope', ($rootScope) ->
 	getDayOfWeek = (theday) ->
 		# gets 0 based day of week
 		day = moment(theday).day()
@@ -37,3 +37,4 @@ angular.module 'epaPrototypeApp'
 			tomorrow2.uvValue = 2
 
 			return { today: today, tomorrow2: tomorrow2, tomorrow: tomorrow }
+]

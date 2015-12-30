@@ -8,11 +8,11 @@ RUN apt-get update && apt-get install -y \
   ruby
 
 RUN gem install sass
-  
+
 RUN chown -R node .
 
 USER node
 
 RUN npm install; bower install
 ENV PORT 80
-CMD ["authbind", "--deep", "grunt", "serve"]
+CMD ["authbind", "--deep", "grunt", "serve:dist"]

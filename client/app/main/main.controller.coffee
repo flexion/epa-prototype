@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter, EpaService, usSpinnerService, DatesFactory) ->
+angular.module('epaPrototypeApp').controller 'MainCtrl', ['$scope','$http','$filter', 'EpaService', 'usSpinnerService', 'DatesFactory', ($scope, $http, $filter, EpaService, usSpinnerService, DatesFactory) ->
 
   $scope.uvData = [[0]]
   $scope.uvLabels = [ "No Data" ]
@@ -44,4 +44,5 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
           $scope.uvLabels.push date.format('H A')
         )
     )
+]
 
