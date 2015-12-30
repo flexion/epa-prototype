@@ -1,0 +1,14 @@
+div(data-ng-controller='CalendarCtrl')
+	.cal-container
+		.cal-today
+			span.cal-day-name {{calData.today.dayName}}
+			div.cal-day {{calData.today.monthName}} {{calData.today.dayNum}}
+			div.cal-uv {{calData.today.uvValue}}
+		.cal-tomorrow
+			span.cal-day-name {{calData.tomorrow.dayName}}
+			div.cal-day {{calData.tomorrow.monthName}} {{calData.tomorrow.dayNum}}
+			div.cal-uv {{calData.tomorrow.uvValue}}
+		.cal-tomorrow2
+			span.cal-day-name {{calData.tomorrow2.dayName}}
+			div.cal-day {{calData.tomorrow2.monthName}} {{calData.tomorrow2.dayNum}}
+			div.cal-uv {{calData.tomorrow2.uvValue}}

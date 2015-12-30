@@ -143,6 +143,7 @@ div(ng-show='uvData[0].length > 0')
   p {{uvSeries}}
             
   canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
+  
+  div(data-ng-include='"components/calendar/calendar.html"')
           
-div(ng-include='"components/footer/footer.html"')
-
+div(ng-include='"components/navbar/navbar.html"')

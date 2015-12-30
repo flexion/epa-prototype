@@ -1,0 +1,19 @@
+.cal-today,
+.cal-tomorrow,
+.cal-tomorrow2 {
+	border:2px solid black;
+}
+
+.cal-day-name { font-size: 18px; }
+
+.cal-day { font-size: 12px; }
+
+.cal-uv { font-size: 20px;}
+
+.cal-container { width: 100%; text-align: center;}
+
+.cal-today { float: left; width: 200px; height: 200px; background-color: #bbff00; }
+
+.cal-tomorrow { float: right; width: 200px; height: 200px; }
+
+.cal-tomorrow2 { display: inline-block; margin: 0 auto; width: 200px; height: 200px; }
