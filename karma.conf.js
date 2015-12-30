@@ -38,7 +38,8 @@ module.exports = function(config) {
       'client/app/**/*.html',
       'client/components/**/*.html',
       'client/bower_components/angular-typeahead/angular-typeahead.js',
-      'client/bower_components/angular-spinner/angular-spinner.js'
+      'client/bower_components/angular-spinner/angular-spinner.js',
+      'client/bower_components/Chart.js/Chart.js'
     ],
 
     preprocessors: {
