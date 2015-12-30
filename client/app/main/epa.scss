@@ -1,17 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
-
-$primaryColor:          #ffe168;
-$secondaryColor:        #1b1464;
+$primaryEpaColor:       #ffe168;
+$secondaryEpaColor:     #1b1464;
 $accentColorPrimary:    #01afbe;
 $accentColorSecondary:  #9bce20;
 $defaultColor:			#000000;
 $footerLinkColor:		#01c9db;
 $footerTextColor:		#ffffff;
-
-$font-family-sans-serif:  "Open Sans", sans-serif !default;
-body {
-  font-family: $font-family-sans-serif;
-}
 
 .heading1 {
 	font-size: 32px;
@@ -33,19 +26,19 @@ body {
 .index-result-size1 {
 	font-style: uppercase, bold;
 	font-size: 120px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .index-result-size2 {
 	font-style: uppercase, bold;
 	font-size: 68px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .index-result-size3 {
 	font-style: bold;
 	font-size: 160px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .index-result-location {
@@ -61,7 +54,7 @@ body {
 
 .navigation-link-text {
 	font-size: 15px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .footer-link-text {
@@ -79,31 +72,31 @@ body {
 .day-selector-index-result-size1 {
 	font-style: uppercase, bold;
 	font-size: 50px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .day-selector-index-result-size2 {
 	font-style: uppercase, bold;
 	font-size: 24px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .day-selector-index-result-size3 {
 	font-style: bold;
 	font-size: 80px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .day-selector-danger-detail {
 	font-style: italic;
 	font-size: 14px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .input-text {
 	font-style: italic;
 	font-size: 24px;
-	color: $secondaryColor;
+	color: $secondaryEpaColor;
 }
 
 .search-button {
