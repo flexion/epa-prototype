@@ -1,0 +1,168 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+$primaryColor:          #ffe168;
+$secondaryColor:        #1b1464;
+$accentColorPrimary:    #01afbe;
+$accentColorSecondary:  #9bce20;
+$defaultColor:			#000000;
+$footerLinkColor:		#01c9db;
+$footerTextColor:		#ffffff;
+
+$font-family-sans-serif:  "Open Sans", sans-serif !default;
+body {
+  font-family: $font-family-sans-serif;
+}
+
+.heading1 {
+	font-size: 32px;
+	color: $defaultColor;
+}
+
+.heading2 {
+	font-style: italic;
+	font-size: 24px;
+	color: $defaultColor;
+	leading: 30px;
+	text-align: center;
+	padding-top: 40px;
+	
+	.spacer {
+		padding-bottom: 100px;
+	}
+}
+
+.index-result-size1 {
+	font-style: uppercase, bold;
+	font-size: 120px;
+	color: $secondaryColor;
+}
+
+.index-result-size2 {
+	font-style: uppercase, bold;
+	font-size: 68px;
+	color: $secondaryColor;
+}
+
+.index-result-size3 {
+	font-style: bold;
+	font-size: 160px;
+	color: $secondaryColor;
+}
+
+.index-result-location {
+	font-style: semibold, italic;
+	font-size: 24px;
+	color: $defaultColor;
+	leading: 30px;
+}
+
+.chart-labeling {
+	font-size: 14px;
+	color: $defaultColor;
+}
+
+.navigation-link-text {
+	font-size: 15px;
+	color: $secondaryColor;
+}
+
+.footer-link-text {
+	font-style: underline;
+	font-size: 15px;
+	color: $footerLinkColor;
+}
+
+.footer-text {
+	font-style: underline;
+	font-size: 15px;
+	color: $footerTextColor;
+}
+
+.day-selector-index-result-size1 {
+	font-style: uppercase, bold;
+	font-size: 50px;
+	color: $secondaryColor;
+}
+
+.day-selector-index-result-size2 {
+	font-style: uppercase, bold;
+	font-size: 24px;
+	color: $secondaryColor;
+}
+
+.day-selector-index-result-size3 {
+	font-style: bold;
+	font-size: 80px;
+	color: $secondaryColor;
+}
+
+.day-selector-danger-detail {
+	font-style: italic;
+	font-size: 14px;
+	color: $secondaryColor;
+}
+
+.input-text {
+	font-style: italic;
+	font-size: 24px;
+	color: $secondaryColor;
+}
+
+.search-button {
+	color: $accentColorPrimary;
+	icon-position: center;
+	icon-height: 30px;
+	icon-width: 30px;
+	button-height: 55px;
+	button-width: 55px;
+}
+
+.banner {
+	background: url(/../design-files/image-assets/sun_rays_background.jpg) center center no-repeat;
+}
+
+img.sunsafe {
+	width: 220px;
+}
+
+ul.nav.primary.epa {
+	color: $defaultColor;
+}
+
+.city-search {
+	float: left;
+	width: 270px;
+	padding-right: 20px;
+}
+
+.state-search {
+	float: left;
+	width: 120px;
+	padding-right: 20px;
+}
+
+.zipcode-search {
+	float: left;
+	width: 160px;
+	padding-right: 20px;
+}
+
+.city-text {
+	width: 250px;
+	height: 30px;
+}
+
+.state-text {
+	width: 100px;
+	height: 30px;
+}
+
+.zipcode-text {
+	width: 120px;
+	height: 30px;
+}
+
+.or-text {
+	float: left;
+	padding-right: 20px;
+}
