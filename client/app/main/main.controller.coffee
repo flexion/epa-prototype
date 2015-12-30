@@ -9,7 +9,7 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
   $scope.getUvData = () ->
 
     if $scope.zipcode
-      EpaService.getUvByZipcode($scope.zipcode).then( (response)->
+      EpaService.getUvByZipcodeHourly($scope.zipcode).then( (response)->
         $scope.uvData[0] = []
         $scope.uvLabels = []
 
@@ -21,24 +21,21 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
         )
       )
 
-    #    else if $scope.city and $scope.state
-    #     EpaService.getUvByAddress($scope.city, $scope.state).then( (response)->
-    #
-    #        $scope.uvData = [[]]
-    #        $scope.uvLabels = []
-    #
-    #        angular.forEach(response.data, (value, key)->
-    #          date = $filter('date')(new Date(value.DATE_TIME), 'hhaa')
-    #          $scope.uvData[0].push(value.UV_VALUE)
-    #          $scope.uvLabels.push(value.DATE_TIME)
-    #        )
-    #        $scope.dataSynced = true
-    #    )
-    #
-    #    $scope.testChart = (points, evt) ->
-    #      console.log(points, evt)
+    else if $scope.city and $scope.state
+     EpaService.getUvByAddressHourly($scope.city, $scope.state).then( (response)->
 
+        $scope.uvData = [[]]
+        $scope.uvLabels = []
 
-    EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
-      $scope.dailyValue = response.data[0].UV_INDEX
+        angular.forEach(response.data, (value, key)->
+          date = moment(value.DATE_TIME, 'MMM/DD/YYYY HH A')
+          $scope.uvData[0].push(value.UV_VALUE)
+          $scope.uvLabels.push date.format('H A')
+        )
     )
+
+
+
+#    EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
+#      $scope.dailyValue = response.data[0].UV_INDEX
+#    )
