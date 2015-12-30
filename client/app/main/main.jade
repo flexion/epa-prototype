@@ -1,4 +1,3 @@
-script(src='bower_components/angular-chart.js/dist/angular-chart.js')
 link(rel='stylesheet', href='bower_components/angular-chart.js/dist/angular-chart.css')
 
 div(ng-include='"components/navbar/navbar.html"')
@@ -11,14 +10,14 @@ div.jumbotron
 .container
   .row
     .col-sm-8.col-sm-offset-2(ng-controller='MainCtrl')
-      h2 UV Index 
+      h2 UV Index
       form.search-form.input-group.input-group-lg(no-validate)
         div.form-control.uv(aria-live="assertive")
-        
+
           span
             label.address(for='address') Address
             input#address(placeholder='Address', ng-model='city')
-          
+
           span.state
             label.state(for='state') State
             select.form-control(ng-model='state')
@@ -37,7 +36,7 @@ div.jumbotron
               option(value='CO') Colorado
               | &#x9;
               option(value='CT') Connecticut
-              | &#x9;                
+              | &#x9;
               option(value='DE') Delaware
               | &#x9;
               option(value='DC') District Of Columbia
@@ -65,7 +64,7 @@ div.jumbotron
               option(value='ME') Maine
               | &#x9;
               option(value='MD') Maryland
-              | &#x9;                
+              | &#x9;
               option(value='MA') Massachusetts
               | &#x9;
               option(value='MI') Michigan
@@ -125,37 +124,37 @@ div.jumbotron
               option(value='WI') Wisconsin
               | &#x9;
               option(value='WY') Wyoming
-            
+
           span.or
-            p 
+            p
             p OR
-          
+
           span.zipcode
             label.zipcode(for='zipcode') Zip Code
             input#zipcode(placeholder='53590', ng-model='zipcode')
-            
+
           span.input-group-btn.uv
             button.search__button.btn.btn-default(type='submit',
             ng-click="getUvData()")
               span.sr-only Search Database
               span.glyphicon.glyphicon-search(aria-hidden='true')
-            
+
         div
           span(us-spinner='', spinner-key='spinner-1')
-          
+
         div.today
           p TUE DEC 15 = 2
-          
+
           p There is a low danger from the sun's UV rays for the average person.
-          
+
           canvas#line.chart.chart-line(chart-data='uvData', chart-labels='uvLabels', chart-series='uvSeries')
-          
+
         div.graph
           p HARMFUL
           p NOT HARMFUL
-          
+
         div.calendar
-          p TUE DEC 15 2 
+          p TUE DEC 15 2
 
 div(ng-include='"components/footer/footer.html"')
 
