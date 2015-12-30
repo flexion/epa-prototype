@@ -1,13 +1,14 @@
-.cal-container
-	.cal-today
-		span.cal-day-name {{today.dayName}}
-		div.cal-day {{today.month}} {{today.dayNum}}
-		div.cal-uv {{today.uvValue}}
-	.cal-tomorrow
-		span.cal-day-name {{tomorrow.dayName}}
-		div.cal-day {{tomorrow.month}} {{tomorrow.dayNum}}
-		div.cal-uv {{tomorrow.uvValue}}
-	.cal-tomorrow2
-		span.cal-day-name {{tomorrow2.dayName}}
-		div.cal-day {{tomorrow2.month}} {{tomorrow2.dayNum}}
-		div.cal-uv {{tomorrow2.uvValue}}
+div(data-ng-controller='CalendarCtrl')
+	.cal-container
+		.cal-today
+			span.cal-day-name {{today.dayName}}
+			div.cal-day {{today.month}} {{today.dayNum}}
+			div.cal-uv {{today.uvValue}}
+		.cal-tomorrow
+			span.cal-day-name {{tomorrow.dayName}}
+			div.cal-day {{tomorrow.month}} {{tomorrow.dayNum}}
+			div.cal-uv {{tomorrow.uvValue}}
+		.cal-tomorrow2
+			span.cal-day-name {{tomorrow2.dayName}}
+			div.cal-day {{tomorrow2.month}} {{tomorrow2.dayNum}}
+			div.cal-uv {{tomorrow2.uvValue}}
