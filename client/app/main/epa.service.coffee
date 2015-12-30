@@ -32,5 +32,5 @@
     }
     
           
-  angular.module('gsfFdaApp').factory('EpaService', EpaService)
+  angular.module('epaPrototypeApp').factory('EpaService', EpaService)
 )()
