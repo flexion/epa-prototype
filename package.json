@@ -4,23 +4,15 @@
   "main": "server/app.js",
   "dependencies": {
     "express": "~4.0.0",
-    "morgan": "~1.0.0",
-    "body-parser": "~1.5.0",
-    "method-override": "~1.0.0",
-    "serve-favicon": "~2.0.1",
-    "cookie-parser": "~1.0.1",
     "express-session": "~1.0.2",
     "errorhandler": "~1.0.0",
     "compression": "~1.0.1",
     "lodash": "~3.0.0",
-    "jade": "~1.2.0",
-    "composable-middleware": "^0.3.0",
-    "connect-mongo": "^0.4.1"
+    "jade": "~1.2.0"
   },
   "devDependencies": {
     "angular-chart": "~0.3.2",
     "chart": "^0.1.2",
-    "connect-livereload": "~0.4.0",
     "grunt": "~0.4.4",
     "grunt-angular-templates": "^0.5.4",
     "grunt-asset-injector": "^0.1.0",
@@ -72,8 +64,6 @@
     "karma-script-launcher": "~0.1.0",
     "open": "~0.0.4",
     "requirejs": "~2.1.11",
-    "should": "~3.3.1",
-    "supertest": "~0.11.0",
     "time-grunt": "~0.3.1"
   },
   "engines": {

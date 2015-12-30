@@ -18,7 +18,7 @@
               return "Sorry! We didn't find any data with that query. Please revise your search and try again."
         
 
-      getUvByAddress: (address, state)->
+      getUvByAddress: (city, state)->
         $http.get('/api/uv-index/?city=' + city + '&state=' + state)
         
           .success (responseData) ->
@@ -31,6 +31,5 @@
               return "Sorry! We didn't find any data with that query. Please revise your search and try again."
     }
     
-          
   angular.module('epaPrototypeApp').factory('EpaService', EpaService)
 )()
