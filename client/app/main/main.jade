@@ -131,11 +131,18 @@ div.banner
                 img.search-button(src='/../design-files/image-assets/search_icon.png')
 
 
-        div.today
-          p TUE DEC 15 = 2
+
+        .cal-today
+          span.cal-left
+            span.cal-day-name {{dayName}}
+            div.cal-day {{monthName}} {{dayNum}} =
+          span.cal-right
+            span.cal-uv {{dailyUV}}
+
 
         div.heading2(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
         div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
+
 
   .row
     .col-sm-8.col-sm-offset-2
@@ -151,6 +158,7 @@ div.banner
   .row
     .col-sm-8.col-sm-offset-2
 
-      div(data-ng-include='"components/calendar/calendar.html"')
+      //div(data-ng-include='"components/calendar/calendar.html"')
+
 
 div(ng-include='"components/navbar/navbar.html"')

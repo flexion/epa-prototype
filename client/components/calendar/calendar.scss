@@ -1,18 +1,22 @@
 .cal-today,
 .cal-tomorrow,
 .cal-tomorrow2 {
-	border:2px solid black;
+	border:15px solid #1B1363;
 }
 
-.cal-day-name { font-size: 18px; }
+.cal-left { padding-left: 20px; width: 80%; float: left;}
 
-.cal-day { font-size: 12px; }
+.cal-right { width: 20%; float: right; height: 100%; }
 
-.cal-uv { font-size: 20px;}
+.cal-day-name { font-size: 45px; padding-left: 30px;}
+
+.cal-day { font-size: 45px; }
+
+.cal-uv { font-size: 45px; line-height: 150px; }
 
 .cal-container { width: 100%; text-align: center;}
 
-.cal-today { float: left; width: 200px; height: 200px; background-color: #bbff00; }
+.cal-today { color: #1B1363; font-weight: bold; margin: 50px auto; width: 300px; height: 200px; background-color: #fff; }
 
 .cal-tomorrow { float: right; width: 200px; height: 200px; }
 

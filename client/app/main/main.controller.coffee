@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter, EpaService, usSpinnerService) ->
+angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter, EpaService, usSpinnerService, DatesFactory) ->
 
   $scope.uvData = [[0]]
   $scope.uvLabels = [ "No Data" ]
@@ -11,6 +11,7 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
     if $scope.zipcode
       EpaService.getUvByZipcodeHourly($scope.zipcode).then( (response)->
         $scope.uvData[0] = []
+
         $scope.uvLabels = []
 
         angular.forEach(response.data, (value, key)->
@@ -22,7 +23,7 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
       )
 
     else if $scope.city and $scope.state
-     EpaService.getUvByAddressHourly($scope.city, $scope.state).then( (response)->
+      EpaService.getUvByAddressHourly($scope.city, $scope.state).then( (response)->
 
         $scope.uvData = [[]]
         $scope.uvLabels = []
@@ -34,8 +35,11 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
         )
     )
 
-
-
-#    EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
-#      $scope.dailyValue = response.data[0].UV_INDEX
-#    )
+    EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
+      console.log('response.data', response.data)
+      $scope.dailyUV = response.data[0].UV_INDEX
+      datesData = DatesFactory.getDates(moment())
+      $scope.dayNum = datesData.today.dayNum
+      $scope.dayName = datesData.today.dayName
+      $scope.monthName = datesData.today.monthName
+    )
