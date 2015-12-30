@@ -2,22 +2,23 @@
 
 angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter, EpaService, usSpinnerService, DatesFactory) ->
 
-  $scope.uvData = [[1, 2, 3]]
-  $scope.uvLabels = [ "One", "Two", "Three" ]
-  $scope.uvSeries = ['Series']
+  $scope.uvData = [[0]]
+  $scope.uvLabels = [ "No Data" ]
+  $scope.uvSeries = ['UV Index']
 
   $scope.getUvData = () ->
+
     if $scope.zipcode
       EpaService.getUvByZipcodeHourly($scope.zipcode).then( (response)->
+        $scope.uvData[0] = []
 
-        $scope.uvData = [[]]
         $scope.uvLabels = []
 
         angular.forEach(response.data, (value, key)->
-          date = $filter('date')(new Date(value.DATE_TIME), 'MM/dd/yyyy')
+          date = moment(value.DATE_TIME, 'MMM/DD/YYYY HH A')
           $scope.uvData[0].push(value.UV_VALUE)
-          $scope.uvLabels.push(value.DATE_TIME)
-          console.log("value: " + value.UV_VALUE + " date: " + date)
+          $scope.uvLabels.push date.format('H A')
+
         )
       )
 
@@ -28,12 +29,10 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
         $scope.uvLabels = []
 
         angular.forEach(response.data, (value, key)->
-          date = $filter('date')(new Date(value.DATE_TIME), 'hhaa')
-          console.log("value: " + value.UV_VALUE + " date: " + date)
+          date = moment(value.DATE_TIME, 'MMM/DD/YYYY HH A')
           $scope.uvData[0].push(value.UV_VALUE)
-          $scope.uvLabels.push(value.DATE_TIME)
+          $scope.uvLabels.push date.format('H A')
         )
-        $scope.dataSynced = true
     )
 
     EpaService.getUvByZipcodeDaily($scope.zipcode).then( (response)->
