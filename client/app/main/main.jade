@@ -1,164 +1,155 @@
-div.banner
-  div(ng-include='"components/navbar/navbar.html"')
+div(ng-controller='MainCtrl')
 
-  .container
+  div.banner
+    div(ng-include='"components/navbar/navbar.html"')
+  
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          form.search-form.input-group.input-group-lg(no-validate)
+            div.uv-search
+            
+              span.city-search
+                label.heading1(for='city') City
+                input.city-text(ng-model='city')
+              
+              span.state-search
+                label.heading1(for='state') State
+                select.state-text(ng-model='state')
+                  option Select
+                  | &#x9;
+                  option(value='AL') AL
+                  | &#x9;
+                  option(value='AK') AK
+                  | &#x9;
+                  option(value='AR') AR
+                  | &#x9;
+                  option(value='AZ') AZ
+                  | &#x9;
+                  option(value='CA') CA
+                  | &#x9;
+                  option(value='CO') CO
+                  | &#x9;
+                  option(value='CT') CT
+                  | &#x9;                  
+                  option(value='DC') DC
+                  | &#x9;
+                  option(value='DE') DE
+                  | &#x9;
+                  option(value='FL') FL
+                  | &#x9;
+                  option(value='GA') GA
+                  | &#x9;
+                  option(value='HI') HI
+                  | &#x9;
+                  option(value='ID') ID
+                  | &#x9;
+                  option(value='IL') IL
+                  | &#x9;
+                  option(value='IN') IN
+                  | &#x9;
+                  option(value='IA') IO
+                  | &#x9;
+                  option(value='KS') KA
+                  | &#x9;
+                  option(value='KY') KE
+                  | &#x9;
+                  option(value='LA') LO
+                  | &#x9;
+                  option(value='MA') MA
+                  | &#x9;
+                  option(value='MD') MD
+                  | &#x9;                  
+                  option(value='ME') ME
+                  | &#x9;
+                  option(value='MI') MI
+                  | &#x9;
+                  option(value='MO') MO
+                  | &#x9;
+                  option(value='MN') MN
+                  | &#x9;
+                  option(value='MS') MS
+                  | &#x9;
+                  option(value='MT') MT
+                  | &#x9;
+                  option(value='NC') NC
+                  | &#x9;
+                  option(value='ND') ND
+                  | &#x9;
+                  option(value='NE') NE
+                  | &#x9;
+                  option(value='NH') NH
+                  | &#x9;
+                  option(value='NJ') NJ
+                  | &#x9;
+                  option(value='NM') NM
+                  | &#x9;
+                  option(value='NV') NV
+                  | &#x9;
+                  option(value='NY') NY
+                  | &#x9;
+                  option(value='OH') OH
+                  | &#x9;
+                  option(value='OK') OK
+                  | &#x9;
+                  option(value='OR') OR
+                  | &#x9;
+                  option(value='PA') PA
+                  | &#x9;
+                  option(value='RI') RI
+                  | &#x9;
+                  option(value='SC') SC
+                  | &#x9;
+                  option(value='SD') SD
+                  | &#x9;
+                  option(value='TN') TN
+                  | &#x9;
+                  option(value='TX') TX
+                  | &#x9;
+                  option(value='UT') UT
+                  | &#x9;
+                  option(value='VA') VA
+                  | &#x9;
+                  option(value='VT') VT
+                  | &#x9;
+                  option(value='WA') WA
+                  | &#x9;
+                  option(value='WI') WI
+                  | &#x9;
+                  option(value='WV') WV
+                  | &#x9;
+                  option(value='WY') WY
+              
+              span.or-text
+                p
+                p.heading1 or
+            
+              span.zipcode-search
+                label.heading1(for='zipcode') Zip Code
+                input.zipcode-text(ng-model='zipcode')
+              
+              span
+                button(type='submit', ng-click="getUvData()")
+                  img.search-button(src='/../design-files/image-assets/search_icon.png')
+          
+
+          div.today
+            p TUE DEC 15 = 2
+          
+          div.heading2.spacer(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
+          div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
+    img.footer-img(src='/../design-files/image-assets/grass_image.png', ng-show='uvData[0].length == 0')
+    
+  div(ng-show='uvData[0].length > 0')
+  
+    div.chart-container
+      canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
     .row
       .col-sm-8.col-sm-offset-2
-        form.search-form.input-group.input-group-lg(no-validate)
-          div.uv-search
+      
+    //div(data-ng-include='"components/calendar/calendar.html"')
+  
+    img.footer-img(src='/../design-files/image-assets/grass_image.png')
 
-            span.city-search
-              label.heading1(for='city') City
-              input.city-text(ng-model='city')
+div(ng-include='"components/footer/footer.html"')
 
-            span.state-search
-              label.heading1(for='state') State
-              select.state-text(ng-model='state')
-                option Select
-                | &#x9;
-                option(value='AL') AL
-                | &#x9;
-                option(value='AK') AK
-                | &#x9;
-                option(value='AR') AR
-                | &#x9;
-                option(value='AZ') AZ
-                | &#x9;
-                option(value='CA') CA
-                | &#x9;
-                option(value='CO') CO
-                | &#x9;
-                option(value='CT') CT
-                | &#x9;
-                option(value='DC') DC
-                | &#x9;
-                option(value='DE') DE
-                | &#x9;
-                option(value='FL') FL
-                | &#x9;
-                option(value='GA') GA
-                | &#x9;
-                option(value='HI') HI
-                | &#x9;
-                option(value='ID') ID
-                | &#x9;
-                option(value='IL') IL
-                | &#x9;
-                option(value='IN') IN
-                | &#x9;
-                option(value='IA') IO
-                | &#x9;
-                option(value='KS') KA
-                | &#x9;
-                option(value='KY') KE
-                | &#x9;
-                option(value='LA') LO
-                | &#x9;
-                option(value='MA') MA
-                | &#x9;
-                option(value='MD') MD
-                | &#x9;
-                option(value='ME') ME
-                | &#x9;
-                option(value='MI') MI
-                | &#x9;
-                option(value='MO') MO
-                | &#x9;
-                option(value='MN') MN
-                | &#x9;
-                option(value='MS') MS
-                | &#x9;
-                option(value='MT') MT
-                | &#x9;
-                option(value='NC') NC
-                | &#x9;
-                option(value='ND') ND
-                | &#x9;
-                option(value='NE') NE
-                | &#x9;
-                option(value='NH') NH
-                | &#x9;
-                option(value='NJ') NJ
-                | &#x9;
-                option(value='NM') NM
-                | &#x9;
-                option(value='NV') NV
-                | &#x9;
-                option(value='NY') NY
-                | &#x9;
-                option(value='OH') OH
-                | &#x9;
-                option(value='OK') OK
-                | &#x9;
-                option(value='OR') OR
-                | &#x9;
-                option(value='PA') PA
-                | &#x9;
-                option(value='RI') RI
-                | &#x9;
-                option(value='SC') SC
-                | &#x9;
-                option(value='SD') SD
-                | &#x9;
-                option(value='TN') TN
-                | &#x9;
-                option(value='TX') TX
-                | &#x9;
-                option(value='UT') UT
-                | &#x9;
-                option(value='VA') VA
-                | &#x9;
-                option(value='VT') VT
-                | &#x9;
-                option(value='WA') WA
-                | &#x9;
-                option(value='WI') WI
-                | &#x9;
-                option(value='WV') WV
-                | &#x9;
-                option(value='WY') WY
-
-            span.or-text
-              p
-              p.heading1 or
-
-            span.zipcode-search
-              label.heading1(for='zipcode') Zip Code
-              input.zipcode-text(ng-model='zipcode')
-
-            span
-              button(type='submit', ng-click="getUvData()")
-                img.search-button(src='/../design-files/image-assets/search_icon.png')
-
-
-
-        .cal-today
-          span.cal-left
-            span.cal-day-name {{dayName}}
-            div.cal-day {{monthName}} {{dayNum}} =
-          span.cal-right
-            span.cal-uv {{dailyUV}}
-
-
-        div.heading2(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
-        div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
-
-
-  .row
-    .col-sm-8.col-sm-offset-2
-      div(ng-show='uvData[0].length > 0')
-        p {{uvData}}
-        p {{uvLabels}}
-        p {{uvSeries}}
-  .row
-    .col-sm-8.col-sm-offset-2
-
-      div.chart-container
-        canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
-  .row
-    .col-sm-8.col-sm-offset-2
-
-      //div(data-ng-include='"components/calendar/calendar.html"')
-
-
-div(ng-include='"components/navbar/navbar.html"')
