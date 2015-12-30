@@ -9,7 +9,7 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
   $scope.getUvData = () ->
   
     if $scope.zipcode
-      EpaService.getUvByZipcode('53590').then( (response)->
+      EpaService.getUvByZipcode($scope.zipcode).then( (response)->
       
         $scope.uvData = [[]]
         $scope.uvLabels = []
