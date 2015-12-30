@@ -1,16 +1,16 @@
 div.banner
   div(ng-include='"components/navbar/navbar.html"')
-  
+
   .container
     .row
       .col-sm-8.col-sm-offset-2(ng-controller='MainCtrl')
         form.search-form.input-group.input-group-lg(no-validate)
           div.uv-search
-          
+
             span.city-search
               label.heading1(for='city') City
               input.city-text(ng-model='city')
-            
+
             span.state-search
               label.heading1(for='state') State
               select.state-text(ng-model='state')
@@ -29,7 +29,7 @@ div.banner
                 option(value='CO') CO
                 | &#x9;
                 option(value='CT') CT
-                | &#x9;                
+                | &#x9;
                 option(value='DC') DC
                 | &#x9;
                 option(value='DE') DE
@@ -57,7 +57,7 @@ div.banner
                 option(value='MA') MA
                 | &#x9;
                 option(value='MD') MD
-                | &#x9;                
+                | &#x9;
                 option(value='ME') ME
                 | &#x9;
                 option(value='MI') MI
@@ -117,33 +117,36 @@ div.banner
                 option(value='WV') WV
                 | &#x9;
                 option(value='WY') WY
-              
+
             span.or-text
               p
               p.heading1 or
-            
+
             span.zipcode-search
               label.heading1(for='zipcode') Zip Code
               input.zipcode-text(ng-model='zipcode')
-              
+
             span
               button(type='submit', ng-click="getUvData()")
                 img.search-button(src='/../design-files/image-assets/search_icon.png')
-          
 
-        div.today
-          p TUE DEC 15 = 2
-          
+
+        .cal-today
+          span.cal-day-name {{calData.today.dayName}}
+          div.cal-day {{calData.today.monthName}} {{calData.today.dayNum}}
+          div.cal-uv {{calData.today.uvValue}}
+
         div.heading2(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
         div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
-           
+
 div(ng-show='uvData[0].length > 0')
   p {{uvData}}
   p {{uvLabels}}
   p {{uvSeries}}
-            
+
   canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
-  
-  div(data-ng-include='"components/calendar/calendar.html"')
-          
+
+  //commenting this out, as we don't have daily data to use a calendar.
+  //div(data-ng-include='"components/calendar/calendar.html"')
+
 div(ng-include='"components/navbar/navbar.html"')
