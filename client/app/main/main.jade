@@ -7,19 +7,16 @@ div.jumbotron
 
 .container
   .row
-    .col-sm-8.col-sm-offset-2(ng-controller='MainCtrl')
-      h2 UV Index {{text}}
+    .col-sm-8.col-sm-offset-2(ng-controller='EpaCtrl')
+      h2 UV Index 
       form.search-form.input-group.input-group-lg(no-validate)
         div.form-control.uv(aria-live="assertive")
         
           span
             label.address(for='address') Address
-            input#address(placeholder='Address')
+            input#address(placeholder='Address', ng-model='city')
           
-          span.state
-            label.state(for='state') State
-            select.form-control
-              option Select
+          div(ng-include='"app/main/states.html"')
             
           span.or
             p 
@@ -27,11 +24,11 @@ div.jumbotron
           
           span.zipcode
             label.zipcode(for='zipcode') Zip Code
-            input#zipcode(placeholder='53590')
+            input#zipcode(placeholder='53590', ng-model='zipcode')
             
           span.input-group-btn.uv
             button.search__button.btn.btn-default(type='submit',
-            ng-click="testText('new string')")
+            ng-click="getUvData()")
               span.sr-only Search Database
               span.glyphicon.glyphicon-search(aria-hidden='true')
             
@@ -42,6 +39,8 @@ div.jumbotron
           p TUE DEC 15 = 2
           
           p There is a low danger from the sun's UV rays for the average person.
+          
+          canvas#line.chart.chart-line(chart-data='uvData', chart-labels='uvLabels', chart-legend='true')
           
         div.graph
           p HARMFUL

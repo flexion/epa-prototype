@@ -4,7 +4,13 @@ var _ = require('lodash');
 var openEPA = require('../../components/services/openEPA');
 
 exports.index = function(req, res) {
-  var openEPAPath = openEPA.getPath(req.query.zipcode);
+  
+  var openEPAPath = null;
+  if(req.query.zipcode) {
+    openEPAPath = openEPA.getZipcodePath(req.query.zipcode);
+  } else {
+    openEPAPath = openEPA.getAddressPath(req.query.city, req.query.state);
+  }
 
   var options = {
     host: 'iaspub.epa.gov',
