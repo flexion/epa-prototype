@@ -6,11 +6,16 @@ var openEPA = require('../../components/services/openEPA');
 exports.index = function(req, res) {
   
   var openEPAPath = null;
-  if(req.query.zipcode) {
-    openEPAPath = openEPA.getZipcodePath(req.query.zipcode);
-  } else {
-    openEPAPath = openEPA.getAddressPath(req.query.city, req.query.state);
+  if(req.query.type === 'hourly' && req.query.zipcode) {
+    openEPAPath = openEPA.getHourlyZipcodePath(req.query.zipcode);
+  } else if(req.query.type === 'hourly' && req.query.city && req.query.state) {
+    openEPAPath = openEPA.getHourlyAddressPath(req.query.city, req.query.state);
+  } else if(req.query.type === 'daily' && req.query.zipcode) {
+    openEPAPath = openEPA.getDailyZipcodePath(req.query.zipcode);
+  } else if(req.query.type === 'daily' && req.query.city && req.query.state) {
+    openEPAPath = openEPA.getDailyAddressPath(req.query.city, req.query.state);
   }
+
 
   var options = {
     host: 'iaspub.epa.gov',
