@@ -324,7 +324,11 @@ a:hover, a:focus {
 .chart text.label {
   fill: black;
 }
-
+.chart-container {
+  width: 90%;
+  box-sizing:border-box;
+  background-color: white;
+}
 /* footer */
 
 .footer {
