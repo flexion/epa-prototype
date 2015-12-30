@@ -15,4 +15,4 @@ USER node
 
 RUN npm install; bower install
 ENV PORT 80
-CMD ["authbind", "--deep", "grunt", "serve:dist"]
+CMD ["authbind", "--deep", "grunt", "serve"]
