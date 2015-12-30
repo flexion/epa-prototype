@@ -34,12 +34,22 @@ exports.getJSON = function(options, onResult)
   req.end();
 };
 
-exports.getZipcodePath = function(zipcode)
+exports.getHourlyZipcodePath = function(zipcode)
 {
   return '/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/' + zipcode + '/JSON';
 };
 
-exports.getAddressPath = function(city, state)
+exports.getHourlyAddressPath = function(city, state)
 {
   return '/enviro/efservice/getEnvirofactsUVHOURLY/CITY/' + city + '/STATE/' + state + '/JSON';
+};
+
+exports.getDailyZipcodePath = function(zipcode)
+{
+  return '/enviro/efservice/getEnvirofactsUVDAILY/ZIP/' + zipcode + '/JSON';
+};
+
+exports.getDailyAddressPath = function(city, state)
+{
+  return '/enviro/efservice/getEnvirofactsUVDAILY/CITY/' + city + '/STATE/' + state + '/JSON';
 };
