@@ -27,4 +27,6 @@ We designed SunSafe with the goal of using open source technologies listed below
 
 ###DevOps
 1. [CircleCI](https://circleci.com/)
+2. [Docker](https://www.docker.com/) for both local and server-side execution
+3. Automated AWS provisioning with CloudFormation containers as found in the RUNNING.md file
 
