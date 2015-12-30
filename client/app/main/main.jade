@@ -1,3 +1,6 @@
+script(src='bower_components/angular-chart.js/dist/angular-chart.js')
+link(rel='stylesheet', href='bower_components/angular-chart.js/dist/angular-chart.css')
+
 div(ng-include='"components/navbar/navbar.html"')
 
 div.jumbotron
@@ -145,8 +148,7 @@ div.jumbotron
 
           p There is a low danger from the sun's UV rays for the average person.
 
-
-          canvas#line.chart.chart-line(ng-if='dataSynced' chart-data='uvData', chart-labels='uvLabels', chart-legend='true', ng-show=true)
+          canvas#line.chart.chart-line(chart-data='uvData', chart-labels='uvLabels', chart-series='uvSeries')
 
         div.graph
           p HARMFUL

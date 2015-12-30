@@ -9,7 +9,8 @@ angular.module 'epaPrototypeApp', [
   'ui.bootstrap',
   'nvd3ChartDirectives',
   'angularSpinner',
-  'ngAria'
+  'ngAria',
+  'chart.js'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider) ->
   $urlRouterProvider
