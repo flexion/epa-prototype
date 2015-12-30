@@ -1,159 +1,149 @@
-link(rel='stylesheet', href='bower_components/angular-chart.js/dist/angular-chart.css')
-
-div(ng-include='"components/navbar/navbar.html"')
-
-div.jumbotron
-  div.rows
-    .col-sm-8.col-sm-offset-2
-      h1.search__title EPA Prototype
-
-.container
-  .row
-    .col-sm-8.col-sm-offset-2(ng-controller='MainCtrl')
-      h2 UV Index
-      form.search-form.input-group.input-group-lg(no-validate)
-        div.form-control.uv(aria-live="assertive")
-
-          span
-            label.address(for='address') Address
-            input#address(placeholder='Address', ng-model='city')
-
-          span.state
-            label.state(for='state') State
-            select.form-control(ng-model='state')
-              option Select
-              | &#x9;
-              option(value='AL') Alabama
-              | &#x9;
-              option(value='AK') Alaska
-              | &#x9;
-              option(value='AZ') Arizona
-              | &#x9;
-              option(value='AR') Arkansas
-              | &#x9;
-              option(value='CA') California
-              | &#x9;
-              option(value='CO') Colorado
-              | &#x9;
-              option(value='CT') Connecticut
-              | &#x9;
-              option(value='DE') Delaware
-              | &#x9;
-              option(value='DC') District Of Columbia
-              | &#x9;
-              option(value='FL') Florida
-              | &#x9;
-              option(value='GA') Georgia
-              | &#x9;
-              option(value='HI') Hawaii
-              | &#x9;
-              option(value='ID') Idaho
-              | &#x9;
-              option(value='IL') Illinois
-              | &#x9;
-              option(value='IN') Indiana
-              | &#x9;
-              option(value='IA') Iowa
-              | &#x9;
-              option(value='KS') Kansas
-              | &#x9;
-              option(value='KY') Kentucky
-              | &#x9;
-              option(value='LA') Louisiana
-              | &#x9;
-              option(value='ME') Maine
-              | &#x9;
-              option(value='MD') Maryland
-              | &#x9;
-              option(value='MA') Massachusetts
-              | &#x9;
-              option(value='MI') Michigan
-              | &#x9;
-              option(value='MN') Minnesota
-              | &#x9;
-              option(value='MS') Mississippi
-              | &#x9;
-              option(value='MO') Missouri
-              | &#x9;
-              option(value='MT') Montana
-              | &#x9;
-              option(value='NE') Nebraska
-              | &#x9;
-              option(value='NV') Nevada
-              | &#x9;
-              option(value='NH') New Hampshire
-              | &#x9;
-              option(value='NJ') New Jersey
-              | &#x9;
-              option(value='NM') New Mexico
-              | &#x9;
-              option(value='NY') New York
-              | &#x9;
-              option(value='NC') North Carolina
-              | &#x9;
-              option(value='ND') North Dakota
-              | &#x9;
-              option(value='OH') Ohio
-              | &#x9;
-              option(value='OK') Oklahoma
-              | &#x9;
-              option(value='OR') Oregon
-              | &#x9;
-              option(value='PA') Pennsylvania
-              | &#x9;
-              option(value='RI') Rhode Island
-              | &#x9;
-              option(value='SC') South Carolina
-              | &#x9;
-              option(value='SD') South Dakota
-              | &#x9;
-              option(value='TN') Tennessee
-              | &#x9;
-              option(value='TX') Texas
-              | &#x9;
-              option(value='UT') Utah
-              | &#x9;
-              option(value='VT') Vermont
-              | &#x9;
-              option(value='VA') Virginia
-              | &#x9;
-              option(value='WA') Washington
-              | &#x9;
-              option(value='WV') West Virginia
-              | &#x9;
-              option(value='WI') Wisconsin
-              | &#x9;
-              option(value='WY') Wyoming
-
-          span.or
-            p
-            p OR
-
-          span.zipcode
-            label.zipcode(for='zipcode') Zip Code
-            input#zipcode(placeholder='53590', ng-model='zipcode')
-
-          span.input-group-btn.uv
-            button.search__button.btn.btn-default(type='submit',
-            ng-click="getUvData()")
-              span.sr-only Search Database
-              span.glyphicon.glyphicon-search(aria-hidden='true')
-
-        div
-          span(us-spinner='', spinner-key='spinner-1')
+div.banner
+  div(ng-include='"components/navbar/navbar.html"')
+  
+  .container
+    .row
+      .col-sm-8.col-sm-offset-2(ng-controller='EpaCtrl')
+        form.search-form.input-group.input-group-lg(no-validate)
+          div.uv-search
+          
+            span.city-search
+              label.heading1(for='city') City
+              input.city-text(ng-model='city')
+            
+            span.state-search
+              label.heading1(for='state') State
+              select.state-text(ng-model='state')
+                option Select
+                | &#x9;
+                option(value='AL') AL
+                | &#x9;
+                option(value='AK') AK
+                | &#x9;
+                option(value='AR') AR
+                | &#x9;
+                option(value='AZ') AZ
+                | &#x9;
+                option(value='CA') CA
+                | &#x9;
+                option(value='CO') CO
+                | &#x9;
+                option(value='CT') CT
+                | &#x9;                
+                option(value='DC') DC
+                | &#x9;
+                option(value='DE') DE
+                | &#x9;
+                option(value='FL') FL
+                | &#x9;
+                option(value='GA') GA
+                | &#x9;
+                option(value='HI') HI
+                | &#x9;
+                option(value='ID') ID
+                | &#x9;
+                option(value='IL') IL
+                | &#x9;
+                option(value='IN') IN
+                | &#x9;
+                option(value='IA') IO
+                | &#x9;
+                option(value='KS') KA
+                | &#x9;
+                option(value='KY') KE
+                | &#x9;
+                option(value='LA') LO
+                | &#x9;
+                option(value='MA') MA
+                | &#x9;
+                option(value='MD') MD
+                | &#x9;                
+                option(value='ME') ME
+                | &#x9;
+                option(value='MI') MI
+                | &#x9;
+                option(value='MO') MO
+                | &#x9;
+                option(value='MN') MN
+                | &#x9;
+                option(value='MS') MS
+                | &#x9;
+                option(value='MT') MT
+                | &#x9;
+                option(value='NC') NC
+                | &#x9;
+                option(value='ND') ND
+                | &#x9;
+                option(value='NE') NE
+                | &#x9;
+                option(value='NH') NH
+                | &#x9;
+                option(value='NJ') NJ
+                | &#x9;
+                option(value='NM') NM
+                | &#x9;
+                option(value='NV') NV
+                | &#x9;
+                option(value='NY') NY
+                | &#x9;
+                option(value='OH') OH
+                | &#x9;
+                option(value='OK') OK
+                | &#x9;
+                option(value='OR') OR
+                | &#x9;
+                option(value='PA') PA
+                | &#x9;
+                option(value='RI') RI
+                | &#x9;
+                option(value='SC') SC
+                | &#x9;
+                option(value='SD') SD
+                | &#x9;
+                option(value='TN') TN
+                | &#x9;
+                option(value='TX') TX
+                | &#x9;
+                option(value='UT') UT
+                | &#x9;
+                option(value='VA') VA
+                | &#x9;
+                option(value='VT') VT
+                | &#x9;
+                option(value='WA') WA
+                | &#x9;
+                option(value='WI') WI
+                | &#x9;
+                option(value='WV') WV
+                | &#x9;
+                option(value='WY') WY
+              
+            span.or-text
+              p
+              p.heading1 or
+            
+            span.zipcode-search
+              label.heading1(for='zipcode') Zip Code
+              input.zipcode-text(ng-model='zipcode')
+              
+            span
+              button(type='submit', ng-click="getUvData()")
+                img.search-button(src='/../design-files/image-assets/search_icon.png')
+          
 
         div.today
           p TUE DEC 15 = 2
-
-          p There is a low danger from the sun's UV rays for the average person.
-
-          canvas#line.chart.chart-line(chart-data='uvData', chart-labels='uvLabels', chart-series='uvSeries')
-
-        div.graph
-          p HARMFUL
-          p NOT HARMFUL
-
-        div(data-ng-include='"components/calendar/calendar.html"')
-
-div(ng-include='"components/footer/footer.html"')
-
+          
+        div.heading2(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
+        div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
+           
+div(ng-show='uvData[0].length > 0')
+  p {{uvData}}
+  p {{uvLabels}}
+  p {{uvSeries}}
+            
+  canvas#line.chart.chart-line(chart-data="uvData", chart-labels="uvLabels", chart-series="uvSeries")
+  
+  div(data-ng-include='"components/calendar/calendar.html"')
+          
+div(ng-include='"components/navbar/navbar.html"')
