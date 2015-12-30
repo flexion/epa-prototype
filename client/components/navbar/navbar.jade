@@ -7,5 +7,5 @@ header.site-header(ng-controller='NavbarCtrl', role='banner')
 
       div.col-sm-6
         ul.nav.primary.epa
-          li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}')
+          li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}', style='display: inline-block')
             a(ng-href='{{item.link}}') {{item.title}}
