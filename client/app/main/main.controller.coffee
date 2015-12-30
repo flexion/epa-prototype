@@ -6,15 +6,26 @@ angular.module('epaPrototypeApp').controller 'MainCtrl', ($scope, $http, $filter
   $scope.uvLabels = [[ 'One', 'Two', 'Three' ]]
   
   $scope.getUvData = () ->
-    console.log('city: ' + $scope.city + ' state: ' + $scope.state + 'zipcode: ' + $scope.zipcode)
   
-    EpaService.getUvByZipcode('53590').then( (response)->
+    if $scope.zipcode
+      EpaService.getUvByZipcode('53590').then( (response)->
     	
-    	angular.forEach(response.data, (value, key)->
-    	  date = $filter('date')(new Date(value.DATE_TIME), 'hh')
-    	  console.log("value: " + value.UV_VALUE + " date: " + date)
-    	  $scope.uvData1.push(value.UV_VALUE)
-    	  $scope.uvLabels1.push(value.DATE_TIME)
-    	)
+    	  angular.forEach(response.data, (value, key)->
+    	    date = $filter('date')(new Date(value.DATE_TIME), 'hhaa')
+    	    console.log("value: " + value.UV_VALUE + " date: " + date)
+    	    $scope.uvData.push(value.UV_VALUE)
+    	    $scope.uvLabels.push(value.DATE_TIME)
+    	  )
+    	  $scope.dataSynced = true
+      )
+    	  
+    if $scope.city and $scope.state
+     EpaService.getUvByAddress($scope.city, $scope.state).then( (response)->
+          angular.forEach(response.data, (value, key)->
+            date = $filter('date')(new Date(value.DATE_TIME), 'hhaa')
+            console.log("value: " + value.UV_VALUE + " date: " + date)
+            $scope.uvData.push(value.UV_VALUE)
+            $scope.uvLabels.push(value.DATE_TIME)
+          )
+          $scope.dataSynced = true
     )
-    
