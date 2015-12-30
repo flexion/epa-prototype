@@ -133,9 +133,12 @@ div.banner
 
 
         .cal-today
-          span.cal-day-name {{calData.today.dayName}}
-          div.cal-day {{calData.today.monthName}} {{calData.today.dayNum}}
-          div.cal-uv {{calData.today.uvValue}}
+          span.cal-left
+            span.cal-day-name {{dayName}}
+            div.cal-day {{monthName}} {{dayNum}} =
+          span.cal-right
+            span.cal-uv {{dailyUV}}
+
 
         div.heading2(ng-show='uvData[0].length == 0') Enter your location or zip code to plan your sun protection needs for outdoor activities.
         div.heading2(ng-show='uvData[0].length > 0') There is a low danger from the sun's UV rays for the average person.
