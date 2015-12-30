@@ -3,11 +3,9 @@ header.site-header(ng-controller='NavbarCtrl', role='banner')
     nav.navbar.navbar-static-top(role='navigation')
       div.col-sm-6
         a.navbar-brand(href='/')
-          span.logo(aria-hidden='true')
-          span.title Anti-Epileptic&nbsp;
-          span.title__secondary Drug Search
+          img.sunsafe(aria-hidden='true', src='/../design-files/image-assets/sun_safe_logo.png')
 
       div.col-sm-6
-        ul.nav.primary
+        ul.nav.primary.epa
           li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}')
             a(ng-href='{{item.link}}') {{item.title}}
