@@ -1,1 +1,16 @@
+node_modules
+public
+.tmp
+.sass-cache
+.idea
+client/bower_components
+dist
+/server/config/local.env.js
+.bash_history
+.config
+.npm
+/.project
+/bower_components
 .DS_Store
+npm-debug.log
+client/index.html
