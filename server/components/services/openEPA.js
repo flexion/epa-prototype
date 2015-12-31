@@ -21,7 +21,13 @@ exports.getJSON = function(options, onResult)
     });
 
     res.on('end', function() {
-      var obj = JSON.parse(output);
+      var obj = {};
+      try {
+        obj = JSON.parse(output);
+      } catch (e) {
+        console.error('error parsing JSON: ' + e);
+        console.error('bad JSON: ' + output);
+      }
 
       onResult(res.statusCode, obj);
     });
